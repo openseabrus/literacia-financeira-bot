@@ -1,0 +1,37 @@
+{
+  "name": "literatura-financeira-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for LiteraciaFinanceira's server",
+  "main": "src/index.js",
+  "type": "module",
+  "engines": {
+    "node": ">= 14"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tiagojpdias/literatura-financeira-bot.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "literatura",
+    "financeira"
+  ],
+  "author": "Tiago Dias",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tiagojpdias/literatura-financeira-bot/issues"
+  },
+  "homepage": "https://github.com/tiagojpdias/literatura-financeira-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.14.0",
+    "eslint-plugin-security": "^1.4.0"
+  }
+}
