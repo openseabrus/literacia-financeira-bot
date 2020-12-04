@@ -1,5 +1,6 @@
+import config from '../config/index.js';
+import jobs from './jobs/index.js';
 import Discord from 'discord.js';
-import config from './config/index.js';
 
 const client = new Discord.Client();
 
@@ -9,18 +10,13 @@ const {
 } = config;
 
 client.once('ready', () => {
-  console.log('Ready!');
+  jobs.start(client);
+  console.log('BOT :: Ready!');
 });
 
 client.on('message', message => {
   if (!message.content.startsWith(prefix) || message.author.bot) {
     return;
-  }
-
-  const [command, argument] = message.content.slice(prefix.length).trim().split(/ +/);
-
-  if (command.toLowerCase() === 'ping') {
-    message.channel.send(argument);
   }
 });
 
