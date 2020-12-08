@@ -8,7 +8,7 @@ For bugs, new features or improvements, open a new [issue](https://github.com/ti
 
 ## Which Branch
 
-Pull requests should always be done against the `master` branch.
+Pull requests should always be done against the `main` branch.
 
 ## Coding Style
 
@@ -75,4 +75,4 @@ We will be using the **branch-per-issue** workflow.
 
 This means, that for each open [issue](https://github.com/tiagojpdias/literacia-financeira-bot/issues), we'll create a corresponding **git** branch.
 
-For instance, issue `#123` should have a corresponding `BOT-123/ShortTaskDescription` branch, which **MUST** branch off the latest code in `master`.
+For instance, issue `#123` should have a corresponding `BOT-123/ShortTaskDescription` branch, which **MUST** branch off the latest code in `main`.

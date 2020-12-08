@@ -62,7 +62,7 @@ REDDIT_CHANNEL_ID=
 
 ## Local
 
-Before anything else, install the dependencies:
+Install the dependencies:
 
 ```sh
 yarn install
