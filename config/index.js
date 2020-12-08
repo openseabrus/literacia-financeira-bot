@@ -25,10 +25,10 @@ const configFiles = fs.readdirSync('./config').filter(file => !file.startsWith('
 
 for (const file of configFiles) {
   const [name] = file.split('.');
-  (async () => {
-    /* eslint-disable security/detect-object-injection */
-    config[name] = (await import(`./${file}`)).default;
-  })();
+  /* eslint-disable security/detect-object-injection */
+  import(`./${file}`).then(module => {
+    config[name] = module.default;
+  });
 }
 
 export default config;
