@@ -1,5 +1,8 @@
 /**
  * Map reddit post object to our own post definition
+ *
+ * @param {RedditPost}
+ * @returns {Post}
  */
 export default ({ data: post }) => ({
   title: post.title,
@@ -8,5 +11,5 @@ export default ({ data: post }) => ({
   author: post.author,
   url: post.url,
   thumbnail: post.thumbnail === 'self' ? undefined : post.thumbnail,
-  nfsw: post.over_18,
+  isNSFW: post.over_18,
 });

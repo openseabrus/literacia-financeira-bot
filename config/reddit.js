@@ -1,6 +1,11 @@
 export default {
-  // Subreddit to check
+  /**
+   * Subreddit to check on
+   */
   subreddit: 'literaciafinanceira',
-  // Poll intervall in seconds
-  pollInterval: 60
+
+  /**
+   * Poll interval in seconds
+   */
+  pollInterval: 60,
 };
