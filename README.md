@@ -1,4 +1,4 @@
-# Literatura Financeira's bot
+# Literacia Financeira's bot
 
 A bot designed to help LiteraciaFinanceira's Discord server on providing high quality content to their users.
 
@@ -6,7 +6,7 @@ A bot designed to help LiteraciaFinanceira's Discord server on providing high qu
 
 # Table of Contents
 
-- [Introduction](#literatura-financeira's-bot)
+- [Introduction](#literacia-financeira's-bot)
 - [Features](#features)
 - [Requirements](#requirements)
 - [Configuration](#configuration)
@@ -76,7 +76,7 @@ npm install
 
 ## Docker
 
-> I'll be using **tiagojpdias** and **literatura-financeira-bot** as example.
+> I'll be using **tiagojpdias** and **literacia-financeira-bot** as example.
 >
 > Feel free to change to meet your requirements
 
@@ -85,7 +85,7 @@ npm install
 ### Build
 
 ```bash
-docker build -t tiagojpdias/literatura-financeira-bot .
+docker build -t tiagojpdias/literacia-financeira-bot .
 ```
 
 <br/>
@@ -102,7 +102,7 @@ npm start
 
 ## Docker
 
-> I'll be using **tiagojpdias** and **literatura-financeira-bot** as example.
+> I'll be using **tiagojpdias** and **literacia-financeira-bot** as example.
 >
 > Please use whatever you set when building the image [here](#build)
 
@@ -111,7 +111,7 @@ npm start
 ### Run
 
 ```bash
-docker run --env-file=.env tiagojpdias/literatura-financeira-bot:latest
+docker run --env-file=.env tiagojpdias/literacia-financeira-bot:latest
 ```
 
 ---

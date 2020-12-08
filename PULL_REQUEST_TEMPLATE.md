@@ -4,7 +4,7 @@ Use the following title format: [BOT-XYZ] <brief description>
 
 # Description
 
-This pull request resolves issue [BOT-XYZ](https://github.com/tiagojpdias/literatura-financeira-bot/issues/XYZ).
+This pull request resolves issue [BOT-XYZ](https://github.com/tiagojpdias/literacia-financeira-bot/issues/XYZ).
 
 # Task items
 

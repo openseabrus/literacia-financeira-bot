@@ -4,7 +4,7 @@ First and foremost, we appreciate your interest in this project. This document c
 
 ## Development discussion
 
-For bugs, new features or improvements, open a new [issue](https://github.com/tiagojpdias/literatura-financeira-bot/issues/new).
+For bugs, new features or improvements, open a new [issue](https://github.com/tiagojpdias/literacia-financeira-bot/issues/new).
 
 ## Which Branch
 
@@ -73,6 +73,6 @@ feat(Reddit): implement API call to fetch subreddit data
 
 We will be using the **branch-per-issue** workflow.
 
-This means, that for each open [issue](https://github.com/tiagojpdias/literatura-financeira-bot/issues), we'll create a corresponding **git** branch.
+This means, that for each open [issue](https://github.com/tiagojpdias/literacia-financeira-bot/issues), we'll create a corresponding **git** branch.
 
 For instance, issue `#123` (new feature) should have a corresponding `feature/BOT-123-ShortTaskDescription` branch, which **MUST** branch off the latest code in `main`.
