@@ -8,7 +8,7 @@ Use the following title format: [BOT-XYZ] <brief description>
 Use the ticket number instead of XYZ to link the ticket enable automatic status update
 -->
 
-This pull request resolves #<XYZ> .
+This pull request resolves #XYZ .
 
 # Task items
 
