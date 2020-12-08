@@ -75,4 +75,4 @@ We will be using the **branch-per-issue** workflow.
 
 This means, that for each open [issue](https://github.com/tiagojpdias/literatura-financeira-bot/issues), we'll create a corresponding **git** branch.
 
-For instance, issue `#123` should have a corresponding `BOT-123/ShortTaskDescription` branch, which **MUST** branch off the latest code in `main`.
+For instance, issue `#123` (new feature) should have a corresponding `feature/BOT-123-ShortTaskDescription` branch, which **MUST** branch off the latest code in `main`.
