@@ -81,16 +81,14 @@ const processAndSend = ({ channel, posts = [] }: { channel: TextChannel, posts: 
 export default {
   async run(discordClient: Client): Promise<void> {
     if (!config.channels.redditFeed) {
-      return;
+      throw new Error('No channel was defined to feed with Reddit posts');
     }
 
-    /** @type {TextChannel} */
     const redditChannel: TextChannel = (await discordClient.channels.fetch(config.channels.redditFeed)) as TextChannel;
 
     if (!newestPostAt) {
-      /** @type {unknown} */
       const messages = await redditChannel.messages.fetch({ limit: 1 });
-      const lastMessage = /** @type {Message[]} */ (messages).find((message) => message.author.bot);
+      const lastMessage = messages.find((message) => message.author.bot);
 
       if (lastMessage?.embeds?.[0].timestamp) {
         newestPostAt = lastMessage.embeds[0].timestamp;
