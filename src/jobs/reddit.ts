@@ -7,14 +7,10 @@ import {
 import config from '../../config/index.js';
 import fetchPosts from '../api/index.js';
 
-/** @type {number} */
 let newestPostAt: number;
 
 /**
  * Generate the embeded object to be sent to the channel
- *
- * @param {Post} post
- * @returns {MessageEmbed} Object to embedded in message
  */
 const generateEmbed = (post: Post) => {
   const embed = {
@@ -63,22 +59,16 @@ const generateEmbed = (post: Post) => {
     inline: true,
   });
 
-  return /** @type {MessageEmbed} */ (embed);
+  return embed;
 };
 
 /**
  * Filter posts to display those posted after a specific date
- *
- * @type {function(Number): function(Post): boolean}
 */
 const filterOnlyNewOnes = (lastPostAt: number) => (post: Post) => (lastPostAt ? post.createdAt > lastPostAt : true);
 
 /**
  * Process the fetched posts in order to send them
- *
- * @param {Object} params
- * @param {TextChannel} params.channel - Channel where to send the message
- * @param {Post[]} params.posts - Posts to send
  */
 const processAndSend = ({ channel, posts = [] }: { channel: TextChannel, posts: Post[]}) => {
   if (!channel) {
@@ -89,10 +79,6 @@ const processAndSend = ({ channel, posts = [] }: { channel: TextChannel, posts: 
 };
 
 export default {
-  /**
-   * @async
-   * @param {Client} discordClient
-  */
   async run(discordClient: Client): Promise<void> {
     if (!config.channels.redditFeed) {
       return;

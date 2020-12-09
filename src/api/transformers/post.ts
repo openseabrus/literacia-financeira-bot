@@ -1,8 +1,5 @@
 /**
  * Map reddit post object to our own post definition
- *
- * @param {RedditPost}
- * @returns {Post}
  */
 export default ({ data: post }: RedditPost): Post => ({
   title: post.title,

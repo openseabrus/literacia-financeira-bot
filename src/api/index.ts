@@ -5,13 +5,6 @@ import config from '../../config/index';
 
 /**
  * Fetch subreddit posts
- *
- * @async
- * @param {Object} [options]
- * @param {number} options.limit - Grab the latest <limit> posts
- * @param {number} options.subreddit - Subreddit to fetch data from
- *
- * @returns {Promise<Post[]>}
  */
 const fetchPosts = async (options = { limit: 5, subreddit: config.reddit.subreddit }): Promise<Post[]> => {
   const {
