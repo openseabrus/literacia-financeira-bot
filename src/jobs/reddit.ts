@@ -4,15 +4,15 @@ import {
   Constants,
   MessageEmbed,
 } from 'discord.js';
-import config from '../../config/index.js';
-import { fetchPosts } from '../api/index.js';
+import config from '../../config';
+import { fetchPosts } from '../api';
 
 let newestPostAt: number;
 
 /**
  * Generate the embeded object to be sent to the channel
  */
-const generateEmbed = (post: Post) => {
+const generateEmbed = (post: Post): MessageEmbed => {
   const embed = {
     color: Constants.Colors.RED,
     url: `https://reddit.com/r/${config.reddit.subreddit}`,

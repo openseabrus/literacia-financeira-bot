@@ -16,8 +16,10 @@ client.once('ready', () => {
 
 client.on('message', (message) => {
   if (!message.content.startsWith(prefix) || message.author.bot) {
-    console.log('do nothing');
+    // do nothing
   }
+
+  // Implement commands
 });
 
 client.login(token);

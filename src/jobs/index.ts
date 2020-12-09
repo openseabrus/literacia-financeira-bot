@@ -1,5 +1,5 @@
 import { Client } from 'discord.js';
-import reddit from './reddit.js';
+import reddit from './reddit';
 
 export default {
   start(discordClient: Client): void {
