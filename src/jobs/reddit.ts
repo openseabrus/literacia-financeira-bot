@@ -72,7 +72,7 @@ const filterOnlyNewOnes = (lastPostAt: number) => (post: Post) => (lastPostAt ? 
  */
 const processAndSend = ({ channel, posts = [] }: { channel: TextChannel, posts: Post[]}) => {
   if (!channel) {
-    throw new Error('There\'s no valid channel to send the message');
+    throw new Error('There\'s no valid channel to send the message. Please set a channel in the config file.');
   }
 
   [...posts].reverse().forEach((post) => channel.send({ embed: generateEmbed(post) }));
