@@ -83,7 +83,7 @@ docker build -t literaciafinanceira/literacia-financeira-bot .
 If you went through the previous steps successfully, you should now be able to run your **bot** with the following command:
 
 ```sh
-npm start
+npm build && npm start
 ```
 
 ## Docker
@@ -91,8 +91,6 @@ npm start
 > I'll be using **literaciafinanceira** and **literacia-financeira-bot** as example.
 >
 > Please use whatever you set when building the image [here](#build)
-
-### Run
 
 ```bash
 docker run --env-file=.env literaciafinanceira/literacia-financeira-bot:latest
