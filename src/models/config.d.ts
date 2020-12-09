@@ -1,4 +1,4 @@
-declare interface RrdditConfig {
+declare interface RedditConfig {
   subreddit: string;
   pollInterval: number;
 }

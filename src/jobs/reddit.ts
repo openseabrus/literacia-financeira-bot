@@ -5,7 +5,7 @@ import {
   MessageEmbed,
 } from 'discord.js';
 import config from '../../config/index.js';
-import fetchPosts from '../api/index.js';
+import { fetchPosts } from '../api/index.js';
 
 let newestPostAt: number;
 

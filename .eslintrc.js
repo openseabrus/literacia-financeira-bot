@@ -24,5 +24,6 @@ module.exports = {
     },
     "rules": {
         "max-len": "off",
+        "import/prefer-default-export": "off",
     }
 };

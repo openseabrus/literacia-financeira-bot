@@ -6,7 +6,7 @@ import config from '../../config/index';
 /**
  * Fetch subreddit posts
  */
-const fetchPosts = async (options = { limit: 5, subreddit: config.reddit.subreddit }): Promise<Post[]> => {
+export const fetchPosts = async (options = { limit: 5, subreddit: config.reddit.subreddit }): Promise<Post[]> => {
   const {
     limit = 5,
     subreddit = config.reddit.subreddit,
@@ -28,5 +28,3 @@ const fetchPosts = async (options = { limit: 5, subreddit: config.reddit.subredd
 
   return posts.data.children.map(postMapper);
 };
-
-export default fetchPosts;
