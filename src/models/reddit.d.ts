@@ -4,7 +4,7 @@ declare interface Post {
   createdAt: number;
   author: string;
   url: string;
-  thumbnail: string;
+  thumbnail: string | undefined;
   isNSFW: boolean;
 }
 
@@ -20,8 +20,4 @@ declare interface RedditPostData {
 
 declare interface RedditPost {
   data: RedditPostData;
-}
-
-declare interface RedditPosEmbed {
-
 }
