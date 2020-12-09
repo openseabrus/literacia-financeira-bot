@@ -2,8 +2,6 @@
 
 A bot designed to help LiteraciaFinanceira's Discord server on providing high quality content to their users.
 
-<br/>
-
 # Table of Contents
 
 - [Introduction](#literacia-financeira's-bot)
@@ -13,24 +11,18 @@ A bot designed to help LiteraciaFinanceira's Discord server on providing high qu
 - [Installation](#installation)
 - [Running](#running)
 
-<br/>
-
 # Features
 
 A few of the things you can do with this bot:
 
 * Check subreddit to check on new posts
 
-<br/>
-
 # Requirements
 
 Package | Version | Required
 -- | -- | --
 Node | >= 14 | Yes
-Docker | >= 19.03.12, build 48a66213fe | No
-
-<br/>
+Docker | >= 19 | No
 
 # Configuration
 
@@ -56,8 +48,6 @@ BOT_TOKEN=
 REDDIT_CHANNEL_ID=
 ```
 
-<br/>
-
 # Installation
 
 ## Local
@@ -76,19 +66,15 @@ npm install
 
 ## Docker
 
-> I'll be using **tiagojpdias** and **literacia-financeira-bot** as example.
+> I'll be using **literaciafinanceira** and **literacia-financeira-bot** as example.
 >
 > Feel free to change to meet your requirements
-
-<br/>
 
 ### Build
 
 ```bash
-docker build -t tiagojpdias/literacia-financeira-bot .
+docker build -t literaciafinanceira/literacia-financeira-bot .
 ```
-
-<br/>
 
 # Running
 
@@ -102,16 +88,14 @@ npm start
 
 ## Docker
 
-> I'll be using **tiagojpdias** and **literacia-financeira-bot** as example.
+> I'll be using **literaciafinanceira** and **literacia-financeira-bot** as example.
 >
 > Please use whatever you set when building the image [here](#build)
-
-<br/>
 
 ### Run
 
 ```bash
-docker run --env-file=.env tiagojpdias/literacia-financeira-bot:latest
+docker run --env-file=.env literaciafinanceira/literacia-financeira-bot:latest
 ```
 
 ---
