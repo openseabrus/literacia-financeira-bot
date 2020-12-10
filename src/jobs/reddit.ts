@@ -1,40 +1,18 @@
-/* eslint-disable-next-line no-unused-vars */
-import { TextChannel, Client, Constants, MessageEmbed, Message } from 'discord.js';
-import config from '../../config/index.js';
-import { fetchPosts } from '../api/index.js';
+import {
+  TextChannel,
+  Client,
+  Constants,
+  MessageEmbed,
+} from 'discord.js';
+import config from '../../config';
+import { fetchPosts } from '../api';
 
-/** @type {number} */
-let newestPostAt;
-
-/**
- * Filter posts to display those posted after a specific date
- *
- * @type {function(Number): function(Post): boolean}
-*/
-const filterOnlyNewOnes = (newestPostAt) => (post) => newestPostAt ? post.createdAt > newestPostAt : true;
-
-/**
- * Process the fetched posts in order to send them
- *
- * @param {Object} params
- * @param {TextChannel} params.channel - Channel where to send the message
- * @param {Post[]} params.posts - Posts to send
- */
-const processAndSend = ({ channel, posts = [] }) => {
-  if (!channel) {
-    throw new Error(`There's no valid channel to send the message`);
-  }
-
-  [...posts].reverse().forEach(post => channel.send({ embed: generateEmbed(post) }));
-};
+let newestPostAt: number;
 
 /**
  * Generate the embeded object to be sent to the channel
- *
- * @param {Post} post
- * @returns {MessageEmbed} Object to embedded in message
  */
-const generateEmbed = (post) => {
+const generateEmbed = (post: Post): MessageEmbed => {
   const embed = {
     color: Constants.Colors.RED,
     url: `https://reddit.com/r/${config.reddit.subreddit}`,
@@ -47,7 +25,7 @@ const generateEmbed = (post) => {
         inline: false,
       },
     ],
-  };
+  } as MessageEmbed;
 
   if (post.description) {
     embed.fields.unshift({
@@ -81,30 +59,44 @@ const generateEmbed = (post) => {
     inline: true,
   });
 
-  return /** @type {MessageEmbed} */ (embed);
+  return embed;
+};
+
+/**
+ * Filter posts to display those posted after a specific date
+*/
+const filterOnlyNewOnes = (lastPostAt: number) => (post: Post) => (lastPostAt ? post.createdAt > lastPostAt : true);
+
+/**
+ * Process the fetched posts in order to send them
+ */
+const processAndSend = ({ channel, posts = [] }: { channel: TextChannel, posts: Post[]}) => {
+  if (!channel) {
+    throw new Error('There\'s no valid channel to send the message. Please set a channel in the config file.');
+  }
+
+  [...posts].reverse().forEach((post) => channel.send({ embed: generateEmbed(post) }));
 };
 
 export default {
-  /**
-   * @async
-   * @param {Client} discordClient
-  */
-  async run(discordClient) {
-    /** @type {TextChannel} */
-    const redditChannel = (await discordClient.channels.fetch(config.channels.redditFeed));
+  async run(discordClient: Client): Promise<void> {
+    if (!config.channels.redditFeed) {
+      throw new Error('No channel was defined to feed with Reddit posts');
+    }
+
+    const redditChannel: TextChannel = (await discordClient.channels.fetch(config.channels.redditFeed)) as TextChannel;
 
     if (!newestPostAt) {
-      /** @type {unknown} */
       const messages = await redditChannel.messages.fetch({ limit: 1 });
-      const lastMessage = /** @type {Message[]} */ (messages).find(message => message.author.bot);
+      const lastMessage = messages.find((message) => message.author.bot);
 
-      if (lastMessage?.embeds?.length) {
+      if (lastMessage?.embeds?.[0].timestamp) {
         newestPostAt = lastMessage.embeds[0].timestamp;
       }
     }
 
     const grabThemPosts = () => {
-      fetchPosts().then(posts => {
+      fetchPosts().then((posts) => {
         const filteredPosts = posts.filter(filterOnlyNewOnes(newestPostAt));
 
         processAndSend({ channel: redditChannel, posts: filteredPosts });
@@ -124,4 +116,4 @@ export default {
     setImmediate(grabThemPosts);
     setInterval(grabThemPosts, config.reddit.pollInterval * 1000);
   },
-}
+};

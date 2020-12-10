@@ -1,6 +1,6 @@
-import config from '../config/index.js';
-import jobs from './jobs/index.js';
 import Discord from 'discord.js';
+import config from '../config';
+import jobs from './jobs';
 
 const client = new Discord.Client();
 
@@ -14,10 +14,12 @@ client.once('ready', () => {
   console.log('BOT :: Ready!');
 });
 
-client.on('message', message => {
+client.on('message', (message) => {
   if (!message.content.startsWith(prefix) || message.author.bot) {
-    return;
+    // do nothing
   }
+
+  // Implement commands
 });
 
 client.login(token);

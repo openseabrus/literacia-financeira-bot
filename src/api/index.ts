@@ -1,18 +1,12 @@
 import fetch from 'node-fetch';
-import postMapper from './transformers/post.js'
-import config from '../../config/index.js';
+import { URL } from 'url';
+import postMapper from './transformers/post';
+import config from '../../config/index';
 
 /**
  * Fetch subreddit posts
- *
- * @async
- * @param {Object} [options]
- * @param {number} options.limit - Grab the latest <limit> posts
- * @param {number} options.subreddit - Subreddit to fetch data from
- *
- * @returns {Promise<Post[]>}
  */
-export const fetchPosts = async (options = { limit: 5, subreddit: config.reddit.subreddit }) => {
+export const fetchPosts = async (options = { limit: 5, subreddit: config.reddit.subreddit }): Promise<Post[]> => {
   const {
     limit = 5,
     subreddit = config.reddit.subreddit,
@@ -24,7 +18,7 @@ export const fetchPosts = async (options = { limit: 5, subreddit: config.reddit.
     url.searchParams.set('limit', limit.toString());
   }
 
-  const posts = await fetch(url.toString()).then(data => data.json());
+  const posts = await fetch(url.toString()).then((data) => data.json());
 
   console.log(`Reddit :: /r/${subreddit} - Last fetch @ ${new Date().toLocaleString('pt-PT')}`);
 

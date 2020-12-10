@@ -32,25 +32,6 @@ If the build breaks due to coding standards, the following command fixes the iss
 
 Although is advisable to fix the issues by hand to build awareness for the future. Doing it by hand trains our brain to not commit those kind of issues again.
 
-### JSDoc
-
-The following is a valid documentation block example:
-
-```js
-/**
- * Fetch subreddit posts
- *
- * @async
- * @param {Object} [params]
- * @param {number} params.limit - Grab the latest <limit> posts
- *
- * @returns {Promise<Post[]>}
- */
-export const fetchPosts = async ({ limit = 5 } = { limit: 5}) => {
-  // ...
-};
-```
-
 ## Committing to git
 
 Each commit **MUST** have a proper message describing the work that has been done.

@@ -1,20 +1,29 @@
 module.exports = {
+    "root": true,
+    "parser": '@typescript-eslint/parser',
     "env": {
         "browser": true,
         "node": true,
         "es2021": true
     },
     "plugins": [
-        "security"
+        '@typescript-eslint',
+        "security",
     ],
     "extends": [
         "plugin:security/recommended",
-        "eslint:recommended",
+        "airbnb-typescript/base",
     ],
     "parserOptions": {
-        "ecmaVersion": 12,
-        "sourceType": "module"
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "project": './tsconfig.json',
+        "ecmaFeatures": {
+            "modules": true
+        }
     },
     "rules": {
+        "max-len": "off",
+        "import/prefer-default-export": "off",
     }
 };
