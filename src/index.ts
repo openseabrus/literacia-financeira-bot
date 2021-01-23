@@ -4,10 +4,7 @@ import jobs from './jobs';
 
 const client = new Discord.Client();
 
-const {
-  prefix,
-  token,
-} = config;
+const { prefix, token } = config;
 
 client.once('ready', () => {
   jobs.start(client);

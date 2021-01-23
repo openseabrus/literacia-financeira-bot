@@ -1,9 +1,4 @@
-import {
-  TextChannel,
-  Client,
-  Constants,
-  MessageEmbed,
-} from 'discord.js';
+import { TextChannel, Client, Constants, MessageEmbed } from 'discord.js';
 import config from '../../config';
 import { fetchPosts } from '../api';
 
@@ -64,18 +59,29 @@ const generateEmbed = (post: Post): MessageEmbed => {
 
 /**
  * Filter posts to display those posted after a specific date
-*/
-const filterOnlyNewOnes = (lastPostAt: number) => (post: Post) => (lastPostAt ? post.createdAt > lastPostAt : true);
+ */
+const filterOnlyNewOnes = (lastPostAt: number) => (post: Post) =>
+  lastPostAt ? post.createdAt > lastPostAt : true;
 
 /**
  * Process the fetched posts in order to send them
  */
-const processAndSend = ({ channel, posts = [] }: { channel: TextChannel, posts: Post[]}) => {
+const processAndSend = ({
+  channel,
+  posts = [],
+}: {
+  channel: TextChannel;
+  posts: Post[];
+}) => {
   if (!channel) {
-    throw new Error('There\'s no valid channel to send the message. Please set a channel in the config file.');
+    throw new Error(
+      "There's no valid channel to send the message. Please set a channel in the config file."
+    );
   }
 
-  [...posts].reverse().forEach((post) => channel.send({ embed: generateEmbed(post) }));
+  [...posts]
+    .reverse()
+    .forEach((post) => channel.send({ embed: generateEmbed(post) }));
 };
 
 export default {
@@ -84,7 +90,9 @@ export default {
       throw new Error('No channel was defined to feed with Reddit posts');
     }
 
-    const redditChannel: TextChannel = (await discordClient.channels.fetch(config.channels.redditFeed)) as TextChannel;
+    const redditChannel: TextChannel = (await discordClient.channels.fetch(
+      config.channels.redditFeed
+    )) as TextChannel;
 
     if (!newestPostAt) {
       const messages = await redditChannel.messages.fetch({ limit: 1 });
@@ -102,7 +110,9 @@ export default {
         processAndSend({ channel: redditChannel, posts: filteredPosts });
 
         if (filteredPosts.length) {
-          console.log(`Reddit :: Sent ${filteredPosts.length} new post(s) to #${redditChannel.name}`);
+          console.log(
+            `Reddit :: Sent ${filteredPosts.length} new post(s) to #${redditChannel.name}`
+          );
         }
 
         const [newest] = posts;

@@ -15,14 +15,14 @@ A bot designed to help LiteraciaFinanceira's Discord server on providing high qu
 
 A few of the things you can do with this bot:
 
-* Check subreddit to check on new posts
+- Check subreddit to check on new posts
 
 # Requirements
 
-Package | Version | Required
--- | -- | --
-Node | >= 14 | Yes
-Docker | >= 19 | No
+| Package | Version | Required |
+| ------- | ------- | -------- |
+| Node    | >= 14   | Yes      |
+| Docker  | >= 19   | No       |
 
 # Configuration
 
@@ -97,6 +97,7 @@ docker run --env-file=.env literaciafinanceira/literacia-financeira-bot:latest
 ```
 
 ---
+
 And at this point you should see an output similar to this:
 
 ```sh
